@@ -22,6 +22,12 @@
 
 <script>
 export default {
+  methods: {
+    createNew() {
+      this.$emit("quoteAdded", this.quote);
+      this.quote = "";
+    }
+  },
   data: function() {
     return {
       quote: ""
