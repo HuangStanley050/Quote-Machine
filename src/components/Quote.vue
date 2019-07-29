@@ -1,6 +1,6 @@
 <template>
   <div class="col-sm-6 col-md-4 col-lg-3">
-    <div class="card">
+    <div class="card" style="margin-bottom:10px">
       <div class="panel-body quote">
         <slot></slot>
       </div>

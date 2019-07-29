@@ -1,5 +1,6 @@
 <template>
   <div id="app" class="container">
+    <Header :quoteCount="quotes.length" :maxQuotes="maxQuotes" />
     <NewQuote @quoteAdded="newQuote" />
     <QuoteGrid @quoteDeleted="deleteQuote" :quotes="quotes" />
     <div class="row">
@@ -15,10 +16,14 @@
 <script>
 import QuoteGrid from "./components/QuoteGrid.vue";
 import NewQuote from "./components/NewQuote.vue";
+import Header from "./components/Header.vue";
 export default {
   name: "app",
   methods: {
     newQuote(quote) {
+      if (this.quotes.length >= this.maxQuotes) {
+        return alert("Please delete quote first");
+      }
       this.quotes.push(quote);
     },
     deleteQuote(index) {
@@ -33,7 +38,8 @@ export default {
   },
   components: {
     QuoteGrid,
-    NewQuote
+    NewQuote,
+    Header
   }
 };
 </script>
